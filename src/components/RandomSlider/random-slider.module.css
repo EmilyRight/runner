@@ -1,0 +1,123 @@
+.slider {
+  --card-width: 150px;
+  display: flex;
+  align-items: center;
+
+  overflow-x: auto;
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  z-index: 10;
+  margin-top: 184px;
+  margin-right: -16px;
+  margin-left: -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+}
+
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
+  .slider {
+    --card-width: 22vw;
+    margin-top: 0;
+  }
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.sliderInner {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  max-width: calc(var(--card-width) * 6 + 8px * 5);
+  position: relative;
+}
+
+.card {
+  position: relative;
+  background: #ffffff;
+  padding: 20px 0;
+  border-radius: 16px;
+  width: var(--card-width);
+}
+
+.card.chosen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%) scale(2) rotate(10deg);
+  animation: chosenCard 2s ease 1s 1 normal forwards;
+}
+
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
+  .card.chosen {
+    width: 20vw;
+    max-width: 205px;
+  }
+  .card.chosen img {
+    max-width: 8rem;
+  }
+}
+
+.card_description {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 15.6px;
+  text-align: center;
+  color: #000;
+}
+
+.card-image {
+  max-width: 100%;
+  display: block;
+}
+
+.card {
+  width: 150px;
+}
+@media (min-width: 768px) {
+  .card {
+    width: 20vw;
+  }
+}
+
+.card.active {
+  z-index: 10;
+  border: 1px solid red;
+}
+
+@keyframes chosenCard {
+  0% {
+    opacity: 0;
+    width: 150px;
+    transform: translate(-51%, -56%) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    width: 56vw;
+    max-width: 205px;
+    transform: translate(-51%, -56%) rotate(-7deg);
+  }
+}
+
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
+  @keyframes chosenCard {
+    0% {
+      opacity: 0;
+      width: 20vw;
+      transform: translate(-51%, -56%) rotate(0);
+    }
+    100% {
+      opacity: 1;
+      width: 20vw;
+      max-width: 205px;
+      transform: translate(-51%, -56%) rotate(-7deg);
+    }
+  }
+}

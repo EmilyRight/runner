@@ -1,0 +1,20 @@
+@font-face {
+  font-family: "Als-House-bold";
+  src: url("../fonts/ALSHauss-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Als-House-Reg";
+  src: url("../fonts/ALSHauss-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Als-House-thin";
+  src: url("../fonts/ALSHauss-Book.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}

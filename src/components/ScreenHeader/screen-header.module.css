@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 3.2rem 1.6rem; */
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header.hidden {
+  display: none;
+}
+
+.button-back {
+  background-color: transparent;
+  border: none;
+  width: 4.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  z-index: 100;
+}
