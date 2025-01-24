@@ -18,36 +18,44 @@
   }
 }
 
+@media only screen and (min-width: 1024px) {
+  .coin-box {
+    width: 4vw;
+    height: 4vw;
+  }
+}
+
+
 .coin.hidden {
   display: none;
 }
 
 @keyframes coin {
   0% {
-    background-image: url(../../src/assets/images/coin/1.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/1.webp");
   }
   12.5% {
-    background-image: url(../../src/assets/images/coin/2.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/2.webp");
   }
   25% {
-    background-image: url(../../src/assets/images/coin/3.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/3.webp");
   }
   37.5% {
-    background-image: url(../../src/assets/images/coin/4.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/4.webp");
   }
   50% {
-    background-image: url(../../src/assets/images/coin/5.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/5.webp");
   }
   62.5% {
-    background-image: url(../../src/assets/images/coin/6.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/6.webp");
   }
   75% {
-    background-image: url(../../src/assets/images/coin/7.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/7.webp");
   }
   87.5% {
-    background-image: url(../../src/assets/images/coin/8.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/8.webp");
   }
   100% {
-    background-image: url(../../src/assets/images/coin/1.png);
+    background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/coin/1.webp");
   }
 }

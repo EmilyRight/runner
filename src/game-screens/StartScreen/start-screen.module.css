@@ -1,6 +1,6 @@
 @import url("../../assets/styles/fonts.css");
 .start-screen {
-  background-image: url("../../assets/images/screens/startscreen.png");
+  background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/startscreen.webp");
 }
 
 .hidden {
@@ -68,7 +68,6 @@
   transform-origin: 50% bottom;
 }
 
-
 .person img {
   display: block;
 }
@@ -88,7 +87,7 @@
   }
 }
 
-@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1){
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
   .logo {
     margin-bottom: 15px;
   }
@@ -148,7 +147,6 @@
     transform: translate(-50%) rotate(-5deg);
   }
   52.5% {
-
     bottom: -19.5%;
     transform: translate(-50%) rotate(0deg);
   }

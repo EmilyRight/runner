@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useGameContext } from "../../context/gameContext";
 import styles from "./random-slider.module.css";
 
 type CardProps = {
@@ -8,7 +6,6 @@ type CardProps = {
 };
 
 function Card({ src, text }: CardProps) {
-  const { setChosenCard, chosenCard } = useGameContext();
 
   return (
     <div className={`${styles.card} ${styles.chosen}`}>

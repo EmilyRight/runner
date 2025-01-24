@@ -42,7 +42,6 @@ const Coin = forwardRef(
 
     return (
       <div className='coin-box' ref={coinRef} style={style}>
-        {/* <div className='coin'></div> */}
       </div>
     );
   }

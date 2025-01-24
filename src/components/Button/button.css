@@ -13,7 +13,8 @@
 }
 
 .btn-orange:hover,
-.btn-orange:active .btn-orange:focus {
+.btn-orange:active,
+.btn-orange:focus {
   background-color: #ff8835;
   border: none;
   outline: none;

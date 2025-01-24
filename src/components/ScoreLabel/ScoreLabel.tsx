@@ -1,5 +1,6 @@
 import styles from "./score-label.module.css";
 import { useGameContext } from "../../context/gameContext";
+import { COIN_ICON_IMG_SRC } from "../../constants/imageSources";
 
 
 function ScoreLabel() {
@@ -7,7 +8,7 @@ function ScoreLabel() {
   return (
     <div className={styles["score-label"]}>
       <div className={styles["score-image"]}>
-        <img src='../../src/assets/images/icons/coin.png' alt='' />
+        <img src={COIN_ICON_IMG_SRC} alt='' />
       </div>
       <div className={styles.score}>
         <span className={styles["current-score"]}>{coins}</span>/

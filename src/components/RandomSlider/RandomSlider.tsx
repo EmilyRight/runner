@@ -14,8 +14,6 @@ function RandomSlider({ isStarted }: TSliderProps) {
   const {
     setChosenCard,
   } = useGameContext();
-  const animationRef = useRef<number | null>(null);
-  const [coordX, setCoordX] = useState(0);
   const [update, setUpdate] = useState(false);
 
   const keyframes: Keyframe[] | PropertyIndexedKeyframes = [

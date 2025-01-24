@@ -1,6 +1,6 @@
 .gameover-screen {
   position: relative;
-  background-image: url("../../assets/images/screens/loosescreen.png");
+  background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/loosescreen.webp");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
@@ -17,10 +17,10 @@
   animation: fadeOut 0.5s linear 2.5s 1 normal forwards;
 }
 
-@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1){
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
   .title {
-   position: absolute;
-   top: 3rem;
+    position: absolute;
+    top: 3rem;
   }
 }
 
@@ -57,7 +57,7 @@
   position: absolute;
   transform: translateX(-36%);
 }
-@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1){
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
   .tears {
     transform: translateX(-48%);
   }
@@ -98,6 +98,7 @@
   opacity: 0;
   animation: fadeOut 0.5s linear 3s 1 normal forwards;
   max-width: 300px;
+  outline: none;
 }
 
 @keyframes duck {

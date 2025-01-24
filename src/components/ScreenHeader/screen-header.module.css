@@ -24,3 +24,10 @@
   position: relative;
   z-index: 100;
 }
+
+.button-back:hover,
+.button-back:active,
+.button-back:focus {
+  border: none;
+  outline: none;
+}

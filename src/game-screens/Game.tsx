@@ -5,11 +5,21 @@ import StartScreen from "./StartScreen/StartScreen";
 import GameScreen from "./GameScreen/GameScreen";
 import GameOverScreen from "./GameOverScreen/GameOverScreen";
 import WinScreen from "./WinScreen/WinScreen";
+import { useEffect } from "react";
 
 function Game() {
-  const { screen } = useGameContext();
+  const { screen, restartGame } = useGameContext();
+
+  useEffect(()=> {
+    window.addEventListener("resize", restartGame)
+
+    return (()=> {
+      window.removeEventListener("resize", restartGame)
+    })
+  })
+
+
   return (
-    // <WinScreen />
     <>
       {screen === "start" && <StartScreen />}
       {screen === "game" && <GameScreen />}

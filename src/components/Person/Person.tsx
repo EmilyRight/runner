@@ -2,6 +2,7 @@ import { forwardRef, useEffect, useRef } from "react";
 import styles from "./person.module.css";
 import { useGameContext } from "../../context/gameContext";
 import PersonShadow from "../PersonShadow/PersonShadow";
+import { LLEG_IMG_SRC, PERSON_BODY_IMG_SRC, RLEG_IMG_SRC } from "../../constants/imageSources";
 
 type PersonProps = {
   setCoords: (coords: DOMRect) => void;
@@ -93,7 +94,7 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
         <div className={styles.person} ref={personRef}>
           <div className={`${styles.body} ${styles["person-body"]}`}>
             <img
-              src='../../src/assets/images/person/body.png'
+              src={PERSON_BODY_IMG_SRC}
               alt=''
               className={`${styles["body-img"]} ${styles["person-body"]}`}
             />
@@ -101,14 +102,14 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
 
           <div className={`${styles["right-leg"]} ${styles["person-body"]}`}>
             <img
-              src='../../src/assets/images/person/rightleg.png'
+              src={RLEG_IMG_SRC}
               alt=''
               className={styles["body-img"]}
             />
           </div>
           <div className={`${styles["left-leg"]} ${styles["person-body"]}`}>
             <img
-              src='../../src/assets/images/person/leftleg.png'
+              src={LLEG_IMG_SRC}
               alt=''
               className={styles["body-img"]}
             />

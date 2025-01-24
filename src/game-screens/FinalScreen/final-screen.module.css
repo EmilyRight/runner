@@ -8,7 +8,7 @@
 }
 
 .background {
-  background-image: url(../../assets/images/screens/confetti.png);
+  background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/confetti.webp");
   background-size: 400%;
   background-position: center 33%;
   position: absolute;
@@ -97,4 +97,15 @@
   transition: 0.4s;
   border: none;
   max-width: 343px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #fff;
+  text-decoration: none;
 }
