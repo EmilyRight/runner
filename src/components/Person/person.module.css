@@ -55,6 +55,7 @@
     height: 27%;
     bottom: -0%;
     left: 50%;
+    will-change: transform;
     transform-origin: 19% top;
     transform: translateX(-50%);
 }
@@ -69,6 +70,7 @@
     height: 30%;
     bottom: -2%;
     left: 50%;
+    will-change: transform;
     transform: translateX(-62%);
     transform-origin: 19% top;
 }
@@ -83,23 +85,23 @@
 }
 
 @keyframes rightLeg {
-    0% {
+    from {
         bottom: -3%;
         transform: translateX(-62%) rotate(-21deg);
     }
 
-    100% {
+    to {
         bottom: -2%;
         transform: translateX(-77%) rotate(19deg);
     }
 }
 
 @keyframes leftLeg {
-    0% {
+    from {
         transform: translateX(-74%) rotate(20deg);
     }
 
-    100% {
+    to {
         transform: translateX(-41%) rotate(-21deg);
     }
 }

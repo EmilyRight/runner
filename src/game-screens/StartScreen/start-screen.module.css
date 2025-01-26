@@ -71,9 +71,18 @@
     z-index: 5;
     display: flex;
     justify-content: center;
+    left: 50%;
+    bottom: -25.5%;
+    transform: translateX(-50%) rotate(0deg);
     will-change: transform;
     transform-origin: 50% bottom;
     transition: 0.4s;
+    
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+
     animation: startPerson2 2s linear 0s infinite normal forwards;
 }
 
@@ -107,60 +116,60 @@
     0% {
         left: 50%;
         bottom: -25.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
 
     7.5% {
         left: 50%;
         bottom: -19.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
 
     15% {
         left: 50%;
         bottom: -25.5%;
-        transform: translate(-50%) rotate(-5deg);
+        transform: translateX(-50%) rotate(-5deg);
     }
     22.5% {
         left: 50%;
         bottom: -19.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
     30% {
         left: 50%;
         bottom: -25.5%;
 
-        transform: translate(-50%) rotate(5deg);
+        transform: translateX(-50%) rotate(5deg);
     }
     37.5% {
         left: 50%;
         bottom: -19.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
     45% {
         left: 50%;
         bottom: -25.5%;
-        transform: translate(-50%) rotate(-5deg);
+        transform: translateX(-50%) rotate(-5deg);
     }
     52.5% {
         left: 50%;
         bottom: -19.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
     60% {
         left: 50%;
         bottom: -25.5%;
 
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
     75% {
         left: 50%;
         bottom: -25.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
     100% {
         left: 50%;
         bottom: -25.5%;
-        transform: translate(-50%) rotate(0deg);
+        transform: translateX(-50%) rotate(0deg);
     }
 }
