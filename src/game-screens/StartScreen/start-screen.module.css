@@ -29,7 +29,7 @@
     -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
     position: relative;
-    transition: .4s;
+    transition: 0.4s;
 }
 
 .start-content {
@@ -68,14 +68,13 @@
     max-width: 116%;
     height: 85%;
     max-height: 50rem;
-    bottom: -23.5%;
-    left: 50%;
     z-index: 5;
-    transform: translate(-50%);
-    animation: startPerson2 2s linear 0s infinite normal forwards;
     display: flex;
     justify-content: center;
+    will-change: transform;
     transform-origin: 50% bottom;
+    transition: 0.4s;
+    animation: startPerson2 2s linear 0s infinite normal forwards;
 }
 
 .person img {
@@ -104,73 +103,63 @@
     }
 } */
 
-@keyframes startPerson {
-    0% {
-        bottom: -25.5%;
-    }
-    15% {
-        bottom: -22%;
-    }
-    30% {
-        bottom: -25.5%;
-    }
-    45% {
-        bottom: -22%;
-    }
-    60% {
-        bottom: -25.5%;
-    }
-    100% {
-        bottom: -25.5%;
-    }
-}
-
 @keyframes startPerson2 {
     0% {
+        left: 50%;
         bottom: -25.5%;
         transform: translate(-50%) rotate(0deg);
     }
 
     7.5% {
+        left: 50%;
         bottom: -19.5%;
         transform: translate(-50%) rotate(0deg);
     }
 
     15% {
+        left: 50%;
         bottom: -25.5%;
         transform: translate(-50%) rotate(-5deg);
     }
     22.5% {
+        left: 50%;
         bottom: -19.5%;
         transform: translate(-50%) rotate(0deg);
     }
     30% {
+        left: 50%;
         bottom: -25.5%;
 
         transform: translate(-50%) rotate(5deg);
     }
     37.5% {
+        left: 50%;
         bottom: -19.5%;
         transform: translate(-50%) rotate(0deg);
     }
     45% {
+        left: 50%;
         bottom: -25.5%;
         transform: translate(-50%) rotate(-5deg);
     }
     52.5% {
+        left: 50%;
         bottom: -19.5%;
         transform: translate(-50%) rotate(0deg);
     }
     60% {
+        left: 50%;
         bottom: -25.5%;
 
         transform: translate(-50%) rotate(0deg);
     }
     75% {
+        left: 50%;
         bottom: -25.5%;
         transform: translate(-50%) rotate(0deg);
     }
     100% {
+        left: 50%;
         bottom: -25.5%;
         transform: translate(-50%) rotate(0deg);
     }
