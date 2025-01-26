@@ -65,12 +65,12 @@
 
 .person {
     position: absolute;
-    max-width: 116%;
+
     height: 85%;
     max-height: 50rem;
     z-index: 5;
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
     will-change: transform;
     left: 50%;
     bottom: -25.5%;
