@@ -11,8 +11,8 @@
 
 .game-screen {
   width: 100vw;
-  height: 100vh;
-  max-height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
