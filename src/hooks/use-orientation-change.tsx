@@ -1,22 +1,23 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 function useOrientationChange() {
     const [isLandscape, setIsLandscape] = useState(false);
+    const gameRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
-            const { innerWidth, innerHeight } = window;
-            setIsLandscape(innerWidth > innerHeight);
+            if (gameRef.current) {
+                const { offsetWidth, offsetHeight } = gameRef.current;
+                setIsLandscape(offsetWidth > offsetHeight);
+            }
         };
 
         window.addEventListener('resize', handleResize);
-
         handleResize();
-
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    return isLandscape;
+    return { isLandscape, gameRef };
 }
 
 export default useOrientationChange;

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-import useOrientation from '../../hooks/use-screen-orintation';
-
 import GameBackground from '../../components/GameBackground/GameBackground';
 import Person from '../../components/Person/Person';
 import Coin from '../../components/Coin/Coin';
@@ -11,6 +9,7 @@ import { SCORE_TO_ACHIEVE } from '../../constants/constants';
 import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
 import styles from './game-screen.module.css';
+import useOrientationChange from '../../hooks/use-orientation-change';
 
 type Item = {
     id: string; // Уникальный идентификатор
@@ -37,7 +36,7 @@ function GameScreen() {
     const [coinCollected, setCoinCollected] = useState(false);
     const [items, setItems] = useState<Item[]>([]);
     const [isFalling, setIsFalling] = useState(false);
-    const { isLandscapeCoarse } = useOrientation();
+    const { isLandscape, gameRef } = useOrientationChange();
     const keyFrames: Keyframe[] | PropertyIndexedKeyframes = [
         { transform: 'none' },
         { transform: 'translate(-100%, 25%) rotate(90deg)' },
@@ -168,17 +167,17 @@ function GameScreen() {
 
     useEffect(() => {
         let generateInterval: ReturnType<typeof setInterval>;
-        if (!isLandscapeCoarse) {
+        if (!isLandscape) {
             generateInterval = setInterval(() => {
                 generateItem();
             }, 3000);
         }
 
         return () => clearInterval(generateInterval);
-    }, [isLandscapeCoarse]);
+    }, [isLandscape]);
 
     useEffect(() => {
-        if (!isLandscapeCoarse) {
+        if (!isLandscape) {
             animationRef.current = requestAnimationFrame(frameAnimation);
         }
 
@@ -187,7 +186,7 @@ function GameScreen() {
                 cancelAnimationFrame(animationRef.current);
             }
         };
-    }, [isLandscapeCoarse]);
+    }, [isLandscape]);
 
     useEffect(() => {
         if (!coinCollected) {
@@ -202,7 +201,7 @@ function GameScreen() {
     }, [coins, isAnimationEnded]);
 
     return (
-        <div className={`game-screen ${styles['game-screen']}`}>
+        <div className={`game-screen ${styles['game-screen']}`} ref={gameRef}>
             <GameBackground />
             <ScreenHeader />
             <div className={styles['game-field']} ref={fieldRef}>
