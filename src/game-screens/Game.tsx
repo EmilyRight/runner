@@ -1,30 +1,34 @@
 import './game.css';
+import { useRef } from 'react';
+
+import useOrientation from '../hooks/use-screen-orintation';
+
 import { useGameContext } from '../context/gameContext';
 import StartScreen from './StartScreen/StartScreen';
-// import { BrowserRouter, Route, Routes } from "react-router";
 import GameScreen from './GameScreen/GameScreen';
 import GameOverScreen from './GameOverScreen/GameOverScreen';
 import WinScreen from './WinScreen/WinScreen';
-import { useEffect } from 'react';
+import { OrintationLockModal } from '../components/OrientationModal/orientation-lock-modal';
 
 function Game() {
-    const { screen, restartGame } = useGameContext();
-
-    useEffect(() => {
-        window.addEventListener('resize', restartGame);
-
-        return () => {
-            window.removeEventListener('resize', restartGame);
-        };
-    });
+    const { screen } = useGameContext();
+    const gameRef = useRef<HTMLDivElement | null>(null);
+    const { isLandscapeCoarse } = useOrientation();
 
     return (
-        <>
+        // <>
+        //     <div className='game-screen' ref={gameRef}>
+        //         {<WinScreen />}
+        //         {<OrintationLockModal show={!!isLandscapeCoarse} />}
+        //     </div>
+        // </>
+        <div className='game-screen' ref={gameRef}>
             {screen === 'start' && <StartScreen />}
             {screen === 'game' && <GameScreen />}
             {screen === 'gameOver' && <GameOverScreen />}
             {screen === 'win' && <WinScreen />}
-        </>
+            {<OrintationLockModal show={!!isLandscapeCoarse} />}
+        </div>
     );
 }
 

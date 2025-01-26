@@ -1,5 +1,6 @@
 html {
     font-size: 62.5%;
+    
 }
 * {
     margin: 0;
@@ -7,11 +8,13 @@ html {
     box-sizing: border-box;
 }
 #root {
-    width: 100vw;
+    width: 100%;
     margin: 0 auto;
-    height: 100vh;
+    height: 100;
     display: flex;
     justify-content: center;
+    overflow: hidden;
+
 }
 
 .logo {
@@ -33,7 +36,7 @@ html {
     font-size: 4.4rem;
     line-height: 4.84rem;
     letter-spacing: -1.2px;
-    margin-bottom: 1.6rem;
+    margin-bottom: 2.5vh;
     text-align: center;
 }
 

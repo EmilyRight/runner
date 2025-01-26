@@ -1,20 +1,27 @@
 @font-face {
     font-family: 'ALSHauss-bold';
-    src: url('../../../src/assets/fonts/ALSHauss-Bold.woff') format('woff');
+    src: url('../fonts/ALSHauss-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ALSHauss-Reg';
-    src: url('../../../src/assets/fonts/ALSHauss-Regular.woff') format('woff');
+    src: url('../fonts/ALSHauss-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ALSHauss-thin';
-    src: url('../../../src/assets/fonts/ALSHauss-Book.woff') format('woff');
+    src: url('../fonts/ALSHauss-Book.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ALSHauss-VF';
+    src: url('../fonts/ALSHauss-Book.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }

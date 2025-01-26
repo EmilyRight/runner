@@ -1,21 +1,21 @@
 .btn-orange {
-  color: #fff;
-  font-size: 1.7rem;
-  line-height: 2.4rem;
-  font-weight: 300;
-  padding-top: 1.4rem;
-  padding-bottom: 1.4rem;
-  background-color: #ff6900;
-  border-radius: 2rem;
-  transition: 0.4s;
-  border: none;
-  max-width: 343px;
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 2.4rem;
+    font-weight: 300;
+    padding-top: 1.4rem;
+    padding-bottom: 1.4rem;
+    background-color: #ff6900;
+    border-radius: 2rem;
+    transition: 0.4s;
+    border: none;
+    max-width: 343px;
 }
 
 .btn-orange:hover,
 .btn-orange:active,
 .btn-orange:focus {
-  background-color: #ff8835;
-  border: none;
-  outline: none;
+    background-color: #ff8835;
+    border: none;
+    outline: none;
 }

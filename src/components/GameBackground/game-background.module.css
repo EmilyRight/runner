@@ -8,26 +8,18 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: left;
-  background-repeat: repeat-x; /* Повторяем фон по горизонтали */
-  background-size: cover; /* Растягиваем изображение */
-  will-change: background-position; /* Оптимизация отрисовки */
-  z-index: -1; /* Отправляем фон на задний план */
+  background-repeat: repeat-x;
+  background-size: cover;
+  will-change: background-position;
+  z-index: -1;
 }
 
-/* .game-screen-background img {
-  height: 100%;
-} */
 
 @keyframes bg {
   0% {
-    /* background-position-x: left; */
     transform: translateX(0%);
-    /* left: 0; */
   }
   100% {
-    /* background-position-x: right; */
     transform: translateX(-87%);
-    /* left: auto;
-    right: 0; */
   }
 }
