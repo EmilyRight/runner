@@ -58,6 +58,7 @@
     will-change: transform;
     transform-origin: 19% top;
     transform: translateX(-50%);
+    transform-box: border-box;
 }
 
 .left-leg.moving {
@@ -73,6 +74,7 @@
     will-change: transform;
     transform: translateX(-62%);
     transform-origin: 19% top;
+    transform-box: border-box;
 }
 
 .right-leg.moving {

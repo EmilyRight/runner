@@ -71,13 +71,14 @@
     z-index: 5;
     display: flex;
     justify-content: center;
+    will-change: transform;
     left: 50%;
     bottom: -25.5%;
     transform: translateX(-50%) rotate(0deg);
-    will-change: transform;
     transform-origin: 50% bottom;
+    transform-box: border-box;
     transition: 0.4s;
-    
+
     backface-visibility: hidden;
     perspective: 1000px;
     -webkit-transform-style: preserve-3d;
