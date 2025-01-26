@@ -116,17 +116,14 @@ function GameScreen() {
     const itemType = Math.random() > 0.5 ? "coin" : "hole";
     const fieldDimentions = fieldRef.current?.getBoundingClientRect();
     if (fieldDimentions) {
-      console.log("====================================");
-      console.log(Math.random() * (fieldDimentions.height * 0.6));
-      console.log("====================================");
       const newItem: Item = {
         id: Math.random().toString(36).substring(2, 9), // Уникальный ID
         type: itemType,
         x: window.innerWidth > 1024 ? window.innerWidth / 2 : window.innerWidth,
         y:
           itemType === "coin"
-            ? Math.random() * (fieldDimentions.height * 0.5) // Монетка спавнится на верхней половине экрана
-            : fieldDimentions.height * 0.15, // Яма создается внизу,
+            ? Math.random() * fieldDimentions.height * 0.2 // Монетка спавнится на верхней половине экрана
+            : fieldDimentions.height * 0.18, // Яма создается внизу,
         speed: 2,
         isCollected: itemType === "coin" ? false : undefined,
       };

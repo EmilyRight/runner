@@ -1,166 +1,166 @@
-@import url("../../assets/styles/fonts.css");
+@import url('../../assets/styles/fonts.css');
 .start-screen {
-  background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/startscreen.webp");
+    background-image: url('https://static-basket-02.wbbasket.ru/vol29/landings/runner/startscreen.webp');
 }
 
 .hidden {
-  animation: fadeAway 0.5s linear 0s 1 normal forwards;
+    animation: fadeAway 0.5s linear 0s 1 normal forwards;
 }
 
 @keyframes fadeAway {
-  0% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 1;
+    }
 
-  100% {
-    opacity: 0;
-  }
+    100% {
+        opacity: 0;
+    }
 }
 
 .start-container {
-  width: 100%;
-  height: 100%;
-  padding: 3rem 1.6rem 2.3rem 1.6rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  will-change: filter;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
+    width: 100%;
+    height: 100%;
+    padding: 3rem 1.6rem 2.3rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    will-change: filter;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 
 .start-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: 99%;
-  position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 99%;
+    position: relative;
 }
 
 .logo {
-  margin-bottom: 2.3rem;
+    margin-bottom: 2.3rem;
 }
 
 .text {
-  font-family: "Als-House-thin";
-  color: #fff;
-  font-size: 1.6rem;
-  line-height: 2.08rem;
-  font-weight: 300;
-  text-align: center;
+    font-family: 'ALSHauss-thin';
+    color: #fff;
+    font-size: 1.6rem;
+    line-height: 2.08rem;
+    font-weight: 300;
+    text-align: center;
 }
 
 .person {
-  position: absolute;
-  max-width: 116%;
-  height: 85%;
-  max-height: 50rem;
-  bottom: -23.5%;
-  left: 50%;
-  z-index: 5;
-  transform: translate(-50%);
-  animation: startPerson2 2s linear 0s infinite normal forwards;
+    position: absolute;
+    max-width: 116%;
+    height: 85%;
+    max-height: 50rem;
+    bottom: -23.5%;
+    left: 50%;
+    z-index: 5;
+    transform: translate(-50%);
+    animation: startPerson2 2s linear 0s infinite normal forwards;
 
-  display: flex;
-  justify-content: center;
-  transform-origin: 50% bottom;
+    display: flex;
+    justify-content: center;
+    transform-origin: 50% bottom;
 }
 
 .person img {
-  display: block;
+    display: block;
 }
 
 .btn {
-  margin-top: auto;
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  font-family: "Als-House-thin";
-  cursor: pointer;
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    font-family: 'ALSHauss-thin';
+    cursor: pointer;
 }
 
 @media (min-width: 600px) {
-  .person {
-    max-height: none;
-  }
+    .person {
+        max-height: none;
+    }
 }
 
 @media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
-  .logo {
-    margin-bottom: 15px;
-  }
+    .logo {
+        margin-bottom: 15px;
+    }
 }
 
 @keyframes startPerson {
-  0% {
-    bottom: -25.5%;
-  }
-  15% {
-    bottom: -22%;
-  }
-  30% {
-    bottom: -25.5%;
-  }
-  45% {
-    bottom: -22%;
-  }
-  60% {
-    bottom: -25.5%;
-  }
-  100% {
-    bottom: -25.5%;
-  }
+    0% {
+        bottom: -25.5%;
+    }
+    15% {
+        bottom: -22%;
+    }
+    30% {
+        bottom: -25.5%;
+    }
+    45% {
+        bottom: -22%;
+    }
+    60% {
+        bottom: -25.5%;
+    }
+    100% {
+        bottom: -25.5%;
+    }
 }
 
 @keyframes startPerson2 {
-  0% {
-    bottom: -23.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
+    0% {
+        bottom: -23.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
 
-  7.5% {
-    bottom: -19.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
+    7.5% {
+        bottom: -19.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
 
-  15% {
-    bottom: -23.5%;
-    transform: translate(-50%) rotate(-5deg);
-  }
-  22.5% {
-    bottom: -19.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
-  30% {
-    bottom: -23.5%;
+    15% {
+        bottom: -23.5%;
+        transform: translate(-50%) rotate(-5deg);
+    }
+    22.5% {
+        bottom: -19.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
+    30% {
+        bottom: -23.5%;
 
-    transform: translate(-50%) rotate(5deg);
-  }
-  37.5% {
-    bottom: -19.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
-  45% {
-    bottom: -23.5%;
-    transform: translate(-50%) rotate(-5deg);
-  }
-  52.5% {
-    bottom: -19.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
-  60% {
-    bottom: -23.5%;
+        transform: translate(-50%) rotate(5deg);
+    }
+    37.5% {
+        bottom: -19.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
+    45% {
+        bottom: -23.5%;
+        transform: translate(-50%) rotate(-5deg);
+    }
+    52.5% {
+        bottom: -19.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
+    60% {
+        bottom: -23.5%;
 
-    transform: translate(-50%) rotate(0deg);
-  }
-  75% {
-    bottom: -23.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
-  100% {
-    bottom: -23.5%;
-    transform: translate(-50%) rotate(0deg);
-  }
+        transform: translate(-50%) rotate(0deg);
+    }
+    75% {
+        bottom: -23.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
+    100% {
+        bottom: -23.5%;
+        transform: translate(-50%) rotate(0deg);
+    }
 }

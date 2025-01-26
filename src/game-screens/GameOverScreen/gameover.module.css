@@ -1,147 +1,147 @@
 .gameover-screen {
-  position: relative;
-  background-image: url("https://static-basket-02.wbbasket.ru/vol29/landings/runner/loosescreen.webp");
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 3.4rem 1.6rem 2.4rem 1.6rem;
+    position: relative;
+    background-image: url('https://static-basket-02.wbbasket.ru/vol29/landings/runner/loosescreen.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 3.4rem 1.6rem 2.4rem 1.6rem;
 }
 
 .title {
-  color: #fff;
-  opacity: 0;
-  animation: fadeOut 0.5s linear 2.5s 1 normal forwards;
+    color: #fff;
+    opacity: 0;
+    animation: fadeOut 0.5s linear 2.5s 1 normal forwards;
 }
 
 @media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
-  .title {
-    position: absolute;
-    top: 3rem;
-  }
+    .title {
+        position: absolute;
+        top: 3rem;
+    }
 }
 
 .screen-images {
-  height: 70%;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  opacity: 0;
-  animation: duck 0.5s linear 2s 1 normal forwards;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    animation: duck 0.5s linear 2s 1 normal forwards;
 }
 
 .duck {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  bottom: 31%;
-  display: flex;
-  justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    bottom: 31%;
+    display: flex;
+    justify-content: center;
 }
 
 .duck img {
-  display: block;
-  height: 177%;
+    display: block;
+    height: 177%;
 }
 
 .tears {
-  height: 100%;
-  width: 10%;
-  max-width: 5rem;
-  left: 50%;
-  top: 0;
-  position: absolute;
-  transform: translateX(-36%);
+    height: 100%;
+    width: 10%;
+    max-width: 5rem;
+    left: 50%;
+    top: 0;
+    position: absolute;
+    transform: translateX(-36%);
 }
 @media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
-  .tears {
-    transform: translateX(-48%);
-  }
+    .tears {
+        transform: translateX(-48%);
+    }
 }
 .tear {
-  height: 12%;
-  opacity: 0;
-  position: absolute;
+    height: 12%;
+    opacity: 0;
+    position: absolute;
 }
 
 .tear img {
-  display: block;
-  max-height: 100%;
+    display: block;
+    max-height: 100%;
 }
 
 .tear-left {
-  left: 50%;
-  top: 50%;
-  transform-origin: top right;
-  animation: tear 1s linear 3s 1 normal forwards;
-  transition: 0.4s;
+    left: 50%;
+    top: 50%;
+    transform-origin: top right;
+    animation: tear 1s linear 3s 1 normal forwards;
+    transition: 0.4s;
 }
 
 .tear-right {
-  right: 50%;
-  top: 50%;
-  animation: tear-right 1s linear 3s 1 normal forwards;
+    right: 50%;
+    top: 50%;
+    animation: tear-right 1s linear 3s 1 normal forwards;
 }
 
 .btn {
-  margin-bottom: 0;
-  margin-top: auto;
-  position: relative;
-  z-index: 10;
-  width: 100%;
-  font-family: "Als-House-thin";
-  cursor: pointer;
-  opacity: 0;
-  animation: fadeOut 0.5s linear 3s 1 normal forwards;
-  max-width: 300px;
-  outline: none;
+    margin-bottom: 0;
+    margin-top: auto;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    font-family: 'ALSHauss-thin';
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeOut 0.5s linear 3s 1 normal forwards;
+    max-width: 300px;
+    outline: none;
 }
 
 @keyframes duck {
-  0% {
-    opacity: 0;
-    bottom: -10%;
-  }
+    0% {
+        opacity: 0;
+        bottom: -10%;
+    }
 
-  100% {
-    opacity: 1;
-    bottom: 0;
-  }
+    100% {
+        opacity: 1;
+        bottom: 0;
+    }
 }
 
 @keyframes tear {
-  0% {
-    opacity: 0;
-    transform: translate(-237%, -98%);
-  }
+    0% {
+        opacity: 0;
+        transform: translate(-237%, -98%);
+    }
 
-  100% {
-    opacity: 1;
-    transform: translate(-247%, -98%);
-  }
+    100% {
+        opacity: 1;
+        transform: translate(-247%, -98%);
+    }
 }
 
 @keyframes tear-right {
-  0% {
-    opacity: 0;
-    transform: translate(246%, -109%) scale(-1, 1);
-  }
+    0% {
+        opacity: 0;
+        transform: translate(246%, -109%) scale(-1, 1);
+    }
 
-  100% {
-    opacity: 1;
-    transform: translate(256%, -109%) scale(-1, 1);
-  }
+    100% {
+        opacity: 1;
+        transform: translate(256%, -109%) scale(-1, 1);
+    }
 }
 
 @keyframes fadeOut {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
