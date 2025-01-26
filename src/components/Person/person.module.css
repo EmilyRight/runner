@@ -25,7 +25,8 @@
     width: fit-content;
     right: 0;
     left: 50%;
-    transform: translate(-50%);
+    will-change: transform;
+    transform: translateX(-50%);
     user-select: none;
 }
 

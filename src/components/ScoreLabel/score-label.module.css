@@ -4,7 +4,7 @@
 
     border-radius: 2.6rem;
     font-size: 1.6rem;
-    line-height: 2.08rem;
+    line-height: 100%;
     color: #8425ff;
     font-weight: 550;
     display: flex;
@@ -16,9 +16,8 @@
     font-family: 'ALSHauss-VF';
     font-weight: 700;
     font-size: 1.6rem;
-    line-height: 2.08rem;
+    line-height: 100%;
     display: flex;
-    
     gap: 1.1px;
 }
 .score-image {

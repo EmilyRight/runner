@@ -18,6 +18,7 @@ import FinalScreen from '../FinalScreen/FinalScreen';
 import { useGameContext } from '../../context/gameContext';
 
 import styles from './win-screen.module.css';
+import useOrientation from '../../hooks/use-screen-orintation';
 
 function WinScreen() {
     const imageBoxRef = useRef<HTMLDivElement | null>(null);
@@ -28,7 +29,7 @@ function WinScreen() {
     const [isFinalBgReady, setIsFinalBgReady] = useState(false);
     const { isFinalScreenShown, chosenCard } = useGameContext();
     const currentAnimationRef = useRef<Animation | null>(null);
-    // const { isLandscapeCoarse } = useOrientation();
+    const { isLandscapeCoarse } = useOrientation();
     const isLandscape = useOrientationChange();
     const isPaused = useRef(false);
 
@@ -117,10 +118,7 @@ function WinScreen() {
 
     useEffect(() => {
         console.log('isLandscape:', isLandscape);
-        console.log(
-            'currentAnimationRef.current:',
-            currentAnimationRef.current
-        );
+        console.log('isLandscapeCoarse', isLandscapeCoarse);
         if (currentAnimationRef.current) {
             if (isLandscape) {
                 currentAnimationRef.current.pause();

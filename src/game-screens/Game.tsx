@@ -14,22 +14,9 @@ function Game() {
     const { screen } = useGameContext();
     const gameRef = useRef<HTMLDivElement | null>(null);
     const { isLandscapeCoarse } = useOrientation();
-    // const [windowHeight, setWindowHeight] = useState(0);
-    // useEffect(() => {
-    //     setWindowHeight(window.innerHeight / 100);
-    // });
+
     return (
-        // <>
-        //     <div className='game-screen' ref={gameRef}>
-        //         {<WinScreen />}
-        //         {<OrintationLockModal show={!!isLandscapeCoarse} />}
-        //     </div>
-        // </>
-        <div
-            className='game-screen'
-            ref={gameRef}
-            // style={{ height: `${windowHeight * 100}px` }}
-        >
+        <div className='game-screen' ref={gameRef}>
             {screen === 'start' && <StartScreen />}
             {screen === 'game' && <GameScreen />}
             {screen === 'gameOver' && <GameOverScreen />}
