@@ -19,7 +19,6 @@ import { useGameContext } from '../../context/gameContext';
 
 import styles from './win-screen.module.css';
 
-
 function WinScreen() {
     const imageBoxRef = useRef<HTMLDivElement | null>(null);
     const fistTitleRef = useRef<HTMLHeadingElement | null>(null);
@@ -157,13 +156,13 @@ function WinScreen() {
                     ref={secondTitleRef}>
                     Не бойся!
                 </h3>
-                <div
+                <p
                     className={`${styles.label} ${
                         isFinalScreenShown ? styles.hidden : ''
                     }`}
                     ref={labelRef}>
                     ты выиграл!
-                </div>
+                </p>
             </div>
             <div className={styles.confetti} />
 
