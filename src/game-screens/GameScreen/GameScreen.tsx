@@ -12,10 +12,10 @@ import styles from './game-screen.module.css';
 import useOrientationChange from '../../hooks/use-orientation-change';
 
 type Item = {
-    id: string; // Уникальный идентификатор
-    type: 'coin' | 'hole'; // Тип элемента: монетка или ямка
-    x: number; // Координата по оси X
-    y: number; // Координата по оси Y
+    id: string;
+    type: 'coin' | 'hole';
+    x: number;
+    y: number;
     speed: number;
     isCollected?: boolean | undefined;
 };
@@ -70,10 +70,9 @@ function GameScreen() {
             const itemRect = itemRef?.getBoundingClientRect();
 
             if (itemRect) {
-                let isIntersecting = false; // Изначально не пересекается
+                let isIntersecting = false;
 
                 if (item.type === 'coin') {
-                    // Проверяем опорные точки всего персонажа
                     isIntersecting =
                         personCoords.top < itemRect.bottom &&
                         personCoords.bottom > itemRect.top &&
@@ -114,8 +113,8 @@ function GameScreen() {
             setItems(
                 (prevItems) =>
                     prevItems
-                        .map((item) => ({ ...item, x: item.x - item.speed })) // Уменьшаем координату X
-                        .filter((item) => item.x + itemFlop > 0) // Убираем элементы, вышедшие за левый край
+                        .map((item) => ({ ...item, x: item.x - item.speed }))
+                        .filter((item) => item.x + itemFlop > 0)
             );
             checkCollision();
         }
@@ -145,8 +144,8 @@ function GameScreen() {
                         : window.innerWidth,
                 y:
                     itemType === 'coin'
-                        ? Math.random() * fieldDimentions.height * 0.2 // Монетка спавнится на верхней половине экрана
-                        : fieldDimentions.height * 0.18, // Яма создается внизу,
+                        ? Math.random() * fieldDimentions.height * 0.2 
+                        : fieldDimentions.height * 0.18,
                 speed: 2,
                 isCollected: itemType === 'coin' ? false : undefined,
             };

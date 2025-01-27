@@ -56,9 +56,9 @@
     height: 27%;
     bottom: -0%;
     left: 50%;
-    will-change: transform;
     transform-origin: 19% top;
-    transform: translateX(-50%);
+    transform: translateX(-74%) rotate(20deg);
+    will-change: transform;
     transform-box: border-box;
 }
 
@@ -73,7 +73,7 @@
     bottom: -2%;
     left: 50%;
     will-change: transform;
-    transform: translateX(-62%);
+    transform: translateX(-62%) rotate(-21deg);
     transform-origin: 19% top;
     transform-box: border-box;
 }
