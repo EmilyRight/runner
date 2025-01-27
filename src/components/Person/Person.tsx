@@ -1,4 +1,11 @@
-import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
+import {
+    forwardRef,
+    useCallback,
+    useEffect,
+    useReducer,
+    useRef,
+    useState,
+} from 'react';
 
 import { useGameContext } from '../../context/gameContext';
 import PersonShadow from '../PersonShadow/PersonShadow';
@@ -40,6 +47,22 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
         const coordY = useRef(0);
         const animationRef = useRef<Animation | null>(null);
         const { setIsAnimationEnded } = useGameContext();
+        const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
+        useEffect(() => {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+            if (isIOS) {
+                console.log('====================================');
+                console.log('IOS');
+                console.log('====================================');
+                const timer = setTimeout(() => {
+                    forceUpdate();
+                }, 100);
+
+                return () => clearTimeout(timer);
+            }
+        }, []);
 
         const trackAnimation = () => {
             if (animationRef.current) {
