@@ -113,7 +113,7 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                         <img
                             src={PERSON_BODY_IMG_SRC}
                             alt=''
-                            className={`${styles['body-img']} ${styles['person-body']} `}
+                            className={`${styles['body-img']} `}
                         />
                     </div>
 

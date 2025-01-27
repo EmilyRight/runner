@@ -19,6 +19,9 @@ function Game() {
     const { isLandscape, gameRef } = useOrientationChange();
 
     return (
+        // <div className='game-screen' ref={gameRef}>
+        //     <GameScreen />
+        // </div>
         <div className='game-screen' ref={gameRef}>
             {screen === GameScreenStep.START && <StartScreen />}
             {screen === GameScreenStep.GAME && <GameScreen />}

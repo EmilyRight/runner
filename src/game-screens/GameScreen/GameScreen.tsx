@@ -144,7 +144,7 @@ function GameScreen() {
                         : window.innerWidth,
                 y:
                     itemType === 'coin'
-                        ? Math.random() * fieldDimentions.height * 0.2 
+                        ? Math.random() * fieldDimentions.height * 0.2
                         : fieldDimentions.height * 0.18,
                 speed: 2,
                 isCollected: itemType === 'coin' ? false : undefined,
