@@ -10,7 +10,7 @@
     bottom: 23%;
     left: 12%;
     width: 22%;
-    max-width: 10rem;
+    /* max-width: fit-content; */
     height: 41%;
     -webkit-transition: 0.4s;
     -o-transition: 0.4s;
@@ -23,9 +23,15 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border: 1px solid red;
 }
 
-
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
+    .person {
+        width: 8%;
+        border: 1px solid rgb(55, 255, 0);
+    }
+}
 .person-body {
     position: absolute;
     height: 95%;
@@ -65,6 +71,7 @@
     -webkit-transform: translateX(-36%);
     -ms-transform: translateX(-36%);
     transform: translateX(-36%);
+    border: 1px solid red;
 }
 
 .left-leg {
@@ -81,9 +88,7 @@
     -ms-transform: translateX(-74%) rotate(20deg);
     transform: translateX(-74%) rotate(20deg);
     -webkit-transform: translateX(-74%) rotate(20deg);
-    will-change: transform;
     transform-box: border-box;
-    border: 1px solid red;
 }
 
 .left-leg.moving {
@@ -106,7 +111,7 @@
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
     transform-box: border-box;
-    border: 1px solid red;
+
 }
 
 .right-leg.moving {

@@ -3,6 +3,7 @@
     src: url('../fonts/ALSHauss-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -10,6 +11,7 @@
     src: url('../fonts/ALSHauss-Regular.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -17,11 +19,13 @@
     src: url('../fonts/ALSHauss-Book.woff') format('woff');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'ALSHauss-VF';
-    src: url('../fonts/ALSHauss-Book.woff') format('woff');
+    src: url('../fonts/ALSHaussVF.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }

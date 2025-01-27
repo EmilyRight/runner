@@ -71,6 +71,7 @@
     height: 100%;
     width: 100%;
     position: relative;
+    border: 1px solid red;
 }
 
 .logo {
@@ -124,7 +125,6 @@
     -webkit-animation: startPerson2 2s linear 0s infinite normal forwards;
 
     animation: startPerson2 2s linear 0s infinite normal forwards;
-    border: 1px solid red;
 }
 
 .person img {
@@ -156,7 +156,6 @@
         max-height: none;
     }
 }
-
 
 @-webkit-keyframes startPerson2 {
     0% {
