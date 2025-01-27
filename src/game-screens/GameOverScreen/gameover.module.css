@@ -99,7 +99,6 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    font-family: 'ALSHauss-thin';
     cursor: pointer;
     opacity: 0;
     animation: fadeOut 0.5s linear 3s 1 normal forwards;
