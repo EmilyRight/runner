@@ -90,6 +90,7 @@
     -webkit-transform: translateX(-74%) rotate(20deg);
     will-change: transform;
     transform-box: border-box;
+    border: 1px solid red;
 }
 
 .left-leg.moving {
@@ -112,6 +113,7 @@
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
     transform-box: border-box;
+    border: 1px solid red;
 }
 
 .right-leg.moving {
@@ -129,6 +131,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border: 1px solid green;
 }
 
 @-webkit-keyframes rightLeg {

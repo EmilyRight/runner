@@ -123,6 +123,7 @@
     -webkit-animation: startPerson2 2s linear 0s infinite normal forwards;
 
     animation: startPerson2 2s linear 0s infinite normal forwards;
+    border: 1px solid red;
 }
 
 .person img {
@@ -134,6 +135,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border: 1px solid green;
 }
 
 .btn {

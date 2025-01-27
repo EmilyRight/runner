@@ -7,7 +7,7 @@ export const titleKeyFrames: Keyframe[] | PropertyIndexedKeyframes = [
 ];
 
 export const titleOptions: KeyframeAnimationOptions = {
-    duration: 2000,
+    duration: 1000,
     iterations: 1,
     fill: 'both',
 };
@@ -51,7 +51,7 @@ export const imageKeyFrames: Keyframe[] | PropertyIndexedKeyframes = [
 ];
 
 export const imageOptions: KeyframeAnimationOptions = {
-    duration: 2000,
+    duration: 1000,
     delay: 2000,
     iterations: 1,
     fill: 'both',
@@ -92,7 +92,7 @@ export const labelKeyframes: Keyframe[] | PropertyIndexedKeyframes = [
 ];
 
 export const labelOptions: KeyframeAnimationOptions = {
-    duration: 2000,
+    duration: 1000,
     delay: 0,
     iterations: 1,
     fill: 'both',
@@ -123,7 +123,7 @@ export const imageFinalKeyFrames: Keyframe[] | PropertyIndexedKeyframes = [
 ];
 
 export const imageFinalOptions: KeyframeAnimationOptions = {
-    duration: 1800,
+    duration: 800,
     iterations: 1,
     easing: 'ease-in-out',
     fill: 'both',
