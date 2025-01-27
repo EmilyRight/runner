@@ -25,13 +25,6 @@
     user-select: none;
 }
 
-@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
-    .person {
-        width: 8%;
-        max-width: 10rem;
-        height: 50%;
-    }
-}
 
 .person-body {
     position: absolute;
@@ -131,7 +124,10 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid green;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    pointer-events: none;
 }
 
 @-webkit-keyframes rightLeg {
