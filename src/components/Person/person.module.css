@@ -10,7 +10,6 @@
     bottom: 23%;
     left: 12%;
     width: 22%;
-    /* max-width: fit-content; */
     height: 41%;
     -webkit-transition: 0.4s;
     -o-transition: 0.4s;
@@ -23,10 +22,9 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid red;
 }
 
-@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) and (min-device-aspect-ratio: 1.1) {
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) {
     .person {
         width: 8%;
         border: 1px solid rgb(55, 255, 0);
@@ -111,7 +109,6 @@
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
     transform-box: border-box;
-
 }
 
 .right-leg.moving {
