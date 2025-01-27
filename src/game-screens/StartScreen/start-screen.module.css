@@ -114,7 +114,7 @@
     -webkit-transition: 0.4s;
     -o-transition: 0.4s;
     transition: 0.4s;
-
+    will-change: transform, bottom, left;
     backface-visibility: hidden;
     -webkit-perspective: 1000px;
     perspective: 1000px;
@@ -146,7 +146,6 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    font-family: 'ALSHauss-thin';
     cursor: pointer;
 }
 

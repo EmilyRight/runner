@@ -49,11 +49,12 @@
 .body {
     height: 90%;
     z-index: 5;
+    will-change: transform, bottom, left;
     bottom: 18%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    transform: translateX(-50%);
+    -webkit-transform: translate(-50%, 0%);
+    -ms-transform: translate(-50%, 0%);
+    transform: translate(-50%, 0%);
 }
 
 .body.moving {
@@ -79,6 +80,7 @@
     width: fit-content;
     z-index: 1;
     height: 27%;
+    will-change: transform, bottom, left;
     bottom: -0%;
     left: 50%;
     -webkit-transform-origin: 19% top;
@@ -90,19 +92,16 @@
     transform-box: border-box;
 }
 
-.left-leg.moving {
-    -webkit-animation: leftLeg 0.3s linear 0s infinite alternate forwards;
-    animation: leftLeg 0.3s linear 0s infinite alternate forwards;
-}
-
 .right-leg {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
     z-index: 7;
     height: 30%;
+    will-change: transform, bottom, left;
     bottom: -3%;
     left: 50%;
+
     -ms-transform: translateX(-62%) rotate(-21deg);
     transform: translateX(-62%) rotate(-21deg);
     -webkit-transform: translateX(-62%) rotate(-21deg);
@@ -115,6 +114,11 @@
 .right-leg.moving {
     -webkit-animation: rightLeg 0.3s linear 0s infinite alternate forwards;
     animation: rightLeg 0.3s linear 0s infinite alternate forwards;
+}
+
+.left-leg.moving {
+    -webkit-animation: leftLeg 0.3s linear 0s infinite alternate forwards;
+    animation: leftLeg 0.3s linear 0s infinite alternate forwards;
 }
 
 .body-img {
@@ -221,30 +225,30 @@
 
 @-webkit-keyframes body {
     0% {
-        transform: translate(-50%, -2%);
-        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
     }
     50% {
         transform: translate(-50%, -2%);
         -webkit-transform: translate(-50%, -2%);
     }
     100% {
-        transform: translate(-50%, -2%);
-        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
     }
 }
 
 @keyframes body {
     0% {
-        transform: translate(-50%, -2%);
-        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
     }
     50% {
         transform: translate(-50%, -2%);
         -webkit-transform: translate(-50%, -2%);
     }
     100% {
-        transform: translate(-50%, -2%);
-        -webkit-transform: translate(-50%, -2%);
+        transform: translate(-50%, 0%);
+        -webkit-transform: translate(-50%, 0%);
     }
 }
