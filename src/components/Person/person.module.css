@@ -23,14 +23,6 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    border: 1px solid rgb(0, 0, 255);
-}
-
-@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) {
-    .person {
-        /* width: 12%; */
-        border: 1px solid rgb(55, 255, 0);
-    }
 }
 
 .person-body {
@@ -39,7 +31,6 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    -webkit-transform: translate3d(0, 0, 0);
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -65,7 +56,6 @@
     -webkit-transform: translateX(-36%);
     -ms-transform: translateX(-36%);
     transform: translateX(-36%);
-    border: 1px solid red;
 }
 
 .left-leg {
@@ -103,19 +93,8 @@
     transform-box: border-box;
 }
 
-.right-leg.moving {
-    -webkit-animation: rightLeg 0.3s linear 0s infinite alternate forwards;
-    animation: rightLeg 0.3s linear 0s infinite alternate forwards;
-}
-
-.left-leg.moving {
-    -webkit-animation: leftLeg 0.3s linear 0s infinite alternate forwards;
-    animation: leftLeg 0.3s linear 0s infinite alternate forwards;
-}
-
-.body.moving {
-    -webkit-animation: body 0.6s linear 0s infinite normal forwards;
-    animation: body 0.6s linear 0s infinite normal forwards;
+.right-leg.paused {
+    animation-play-state: paused;
 }
 
 .body-img {

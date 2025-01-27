@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from 'react';
 
-import useOrientation from '../../hooks/use-screen-orintation';
-
 import { BG_HEIGHT, BG_WIDTH } from '../../constants/constants';
 
 import styles from './game-background.module.css';
 
-function GameBackground() {
+type GameBackgroundProps = {
+    isLandscape: boolean;
+};
+
+function GameBackground({ isLandscape }: GameBackgroundProps) {
     const [offset, setOffset] = useState(0);
     const speed = 2.1;
     const animationRef = useRef<number | null>(null);
     const [bgWidth, setBgWidth] = useState(() => calculateBgWidth());
-    const { isLandscapeCoarse } = useOrientation();
 
     function calculateBgWidth() {
         const windowHeight = window.innerHeight;
@@ -28,7 +29,7 @@ function GameBackground() {
     }, []);
 
     useEffect(() => {
-        if (!isLandscapeCoarse) {
+        if (!isLandscape) {
             const animate = () => {
                 setOffset((prevOffset) => prevOffset + speed);
                 animationRef.current = requestAnimationFrame(animate);
@@ -40,7 +41,7 @@ function GameBackground() {
                 cancelAnimationFrame(animationRef.current);
             }
         };
-    }, [isLandscapeCoarse]);
+    }, [isLandscape]);
 
     return (
         <div

@@ -110,11 +110,10 @@ function GameScreen() {
         const fieldDimentions = fieldRef.current?.getBoundingClientRect();
         if (fieldDimentions) {
             const itemFlop = fieldDimentions.width * 0.4;
-            setItems(
-                (prevItems) =>
-                    prevItems
-                        .map((item) => ({ ...item, x: item.x - item.speed }))
-                        .filter((item) => item.x + itemFlop > 0)
+            setItems((prevItems) =>
+                prevItems
+                    .map((item) => ({ ...item, x: item.x - item.speed }))
+                    .filter((item) => item.x + itemFlop > 0)
             );
             checkCollision();
         }
@@ -201,7 +200,7 @@ function GameScreen() {
 
     return (
         <div className={`game-screen ${styles['game-screen']}`} ref={gameRef}>
-            <GameBackground />
+            <GameBackground isLandscape={isLandscape} />
             <ScreenHeader />
             <div className={styles['game-field']} ref={fieldRef}>
                 <Person
@@ -209,6 +208,7 @@ function GameScreen() {
                     setCoords={handlePersonCoords}
                     setLegCoords={setLegsCoords}
                     legsRef={legsRef}
+                    isLandscape={isLandscape}
                 />
 
                 {items.map((item) =>

@@ -1,6 +1,4 @@
-import { forwardRef, useEffect, useRef } from 'react';
-
-import useOrientation from '../../hooks/use-screen-orintation';
+import { forwardRef, useCallback, useEffect, useRef, useState } from 'react';
 
 import { useGameContext } from '../../context/gameContext';
 import PersonShadow from '../PersonShadow/PersonShadow';
@@ -11,32 +9,37 @@ import {
 } from '../../constants/imageSources';
 
 import styles from './person.module.css';
+import {
+    bodyKeyframes,
+    bodyOptions,
+    leftLegKeyframes,
+    leftLegOptions,
+    personKeyFrames,
+    personOptions,
+    rightLegKeyframes,
+    rightLegOptions,
+} from './animationOptions';
 
 type PersonProps = {
     setCoords: (coords: DOMRect) => void;
     setLegCoords: (coords: DOMRect) => void;
     legsRef: React.RefObject<HTMLDivElement>;
+    isLandscape: boolean;
 };
 
 const Person = forwardRef<HTMLDivElement, PersonProps>(
-    ({ setCoords, setLegCoords, legsRef }, ref) => {
+    ({ setCoords, setLegCoords, legsRef, isLandscape }, ref) => {
         const personRef = ref as React.RefObject<HTMLDivElement>;
         const isJumpingRef = useRef(false);
+        const [isJumping, setIsJumping] = useState(false);
+        const bodyRef = useRef<HTMLDivElement | null>(null);
+        const rightLegRef = useRef<HTMLDivElement | null>(null);
+        const leftLegRef = useRef<HTMLDivElement | null>(null);
+        const bodyAnimationsRef = useRef<Animation[] | null>([]);
+
         const coordY = useRef(0);
         const animationRef = useRef<Animation | null>(null);
         const { setIsAnimationEnded } = useGameContext();
-        const { isLandscapeCoarse } = useOrientation();
-        const personKeyFrames: Keyframe[] | PropertyIndexedKeyframes = [
-            { transform: 'translateY(0)' },
-            { transform: 'translateY(-200%)' },
-            { transform: 'translateY(0)' },
-        ];
-
-        const personOptions: KeyframeAnimationOptions = {
-            duration: 2000,
-            iterations: 1,
-            fill: 'forwards',
-        };
 
         const trackAnimation = () => {
             if (animationRef.current) {
@@ -62,6 +65,7 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
             if (!personRef?.current || isJumpingRef.current) return;
 
             if (e instanceof KeyboardEvent) {
+                setIsJumping(true);
                 isJumpingRef.current = true;
                 if (e.code === 'Space') {
                     animationRef.current = personRef.current.animate(
@@ -71,6 +75,7 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                     setIsAnimationEnded(false);
                 }
             } else if (e instanceof TouchEvent) {
+                setIsJumping(true);
                 isJumpingRef.current = true;
                 animationRef.current = personRef.current.animate(
                     personKeyFrames,
@@ -81,6 +86,7 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
             requestAnimationFrame(trackAnimation);
             if (animationRef.current) {
                 animationRef.current.finished.then(() => {
+                    setIsJumping(false);
                     isJumpingRef.current = false;
                     setIsAnimationEnded(true);
                     coordY.current = 0;
@@ -88,8 +94,62 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
             }
         };
 
+        const createAnimations = useCallback(() => {
+            if (!bodyRef.current || !leftLegRef.current || !rightLegRef.current)
+                return;
+
+            bodyAnimationsRef.current?.forEach((animation) =>
+                animation.cancel()
+            );
+            bodyAnimationsRef.current = [];
+
+            const elements = [
+                bodyRef.current,
+                leftLegRef.current,
+                rightLegRef.current,
+            ];
+
+            type AnimationTuple = [
+                Keyframe[] | PropertyIndexedKeyframes,
+                KeyframeAnimationOptions
+            ];
+            const animationOptions: AnimationTuple[] = [
+                [bodyKeyframes, bodyOptions],
+                [leftLegKeyframes, leftLegOptions],
+                [rightLegKeyframes, rightLegOptions],
+            ];
+
+            elements.forEach((element, i) => {
+                const [keyframes, options] = animationOptions[i];
+                const animation = element.animate(keyframes, options);
+                bodyAnimationsRef.current?.push(animation);
+
+                if (isLandscape || isJumpingRef.current === true) {
+                    animation.pause();
+                }
+            });
+        }, [isLandscape, isJumping]);
+
         useEffect(() => {
-            if (!isLandscapeCoarse) {
+            createAnimations();
+
+            bodyAnimationsRef.current?.forEach((animation) => {
+                if (isLandscape || isJumping) {
+                    animation.pause();
+                } else {
+                    animation.play();
+                }
+            });
+
+            return () => {
+                bodyAnimationsRef.current?.forEach((animation) =>
+                    animation.cancel()
+                );
+            };
+        }, [isLandscape, createAnimations, isJumping]);
+
+        useEffect(() => {
+            if (!isLandscape) {
                 document.addEventListener('keydown', handlePressSpaceKey);
                 window.addEventListener('touchstart', handlePressSpaceKey);
                 const personRect = personRef.current!.getBoundingClientRect();
@@ -101,15 +161,14 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                 document.removeEventListener('keydown', handlePressSpaceKey);
                 window.removeEventListener('touchstart', handlePressSpaceKey);
             };
-        }, [isLandscapeCoarse]);
+        }, []);
 
         return (
             <>
                 <div className={styles.person} ref={personRef}>
                     <div
-                        className={`${styles.body} ${styles['person-body']} ${
-                            !isLandscapeCoarse ? styles.moving : ''
-                        }`}>
+                        className={`${styles.body} ${styles['person-body']}`}
+                        ref={bodyRef}>
                         <img
                             src={PERSON_BODY_IMG_SRC}
                             alt=''
@@ -118,9 +177,8 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                     </div>
 
                     <div
-                        className={`${styles['right-leg']} ${
-                            styles['person-body']
-                        } ${!isLandscapeCoarse ? styles.moving : ''}`}>
+                        className={`${styles['right-leg']} ${styles['person-body']} `}
+                        ref={rightLegRef}>
                         <img
                             src={RLEG_IMG_SRC}
                             alt=''
@@ -128,9 +186,8 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                         />
                     </div>
                     <div
-                        className={`${styles['left-leg']} ${
-                            styles['person-body']
-                        } ${!isLandscapeCoarse ? styles.moving : ''}`}>
+                        className={`${styles['left-leg']} ${styles['person-body']} `}
+                        ref={leftLegRef}>
                         <img
                             src={LLEG_IMG_SRC}
                             alt=''

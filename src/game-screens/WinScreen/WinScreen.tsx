@@ -39,20 +39,14 @@ function WinScreen() {
             const animation = element.animate(keyframes, options);
             currentAnimationRef.current = animation;
             if (isPaused.current) {
-                console.log(
-                    'Анимация приостановлена (isPaused стоит на true).'
-                );
-                resolve(); // Завершаем Promise, но не запускаем анимацию.
+                resolve();
             }
             animation.onfinish = () => {
-                // currentAnimationRef.current = null;
                 resolve();
             };
 
             animation.oncancel = () => {
-                // В случае отмены анимации
-                console.log('Анимация отменена.');
-                resolve(); // Считаем завершенной
+                resolve();
             };
         });
     };
