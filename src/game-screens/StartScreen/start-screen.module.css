@@ -114,17 +114,6 @@
     -webkit-transition: 0.4s;
     -o-transition: 0.4s;
     transition: 0.4s;
-
-    /* transform-box: border-box;
-    backface-visibility: hidden;
-    -webkit-perspective: 1000px;
-    perspective: 1000px;
-    -webkit-transform-style: preserve-3d;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translate3d(0, 0, 0); */
-    /* -webkit-animation: startPerson2 2s linear 0s infinite normal forwards;
-
-    animation: startPerson2 2s linear 0s infinite normal forwards; */
 }
 
 .person img {

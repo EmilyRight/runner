@@ -23,6 +23,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    border: 1px solid red;
 }
 
 .person-body {
@@ -45,6 +46,7 @@
     -webkit-transform: translate(-50%, 0%);
     -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
+    border: 1px solid rgb(0, 4, 255);
 }
 
 .legs-threshold {
@@ -69,10 +71,11 @@
     -webkit-transform-origin: 19% top;
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
-    -ms-transform: translateX(-74%) rotate(20deg);
-    transform: translateX(-74%) rotate(20deg);
-    -webkit-transform: translateX(-74%) rotate(20deg);
+    -ms-transform: translate3d(-74%, 0, 0) rotate(20deg);
+    transform: translate3d(-74%, 0, 0) rotate(20deg);
+    -webkit-transform: translate3d(-74%, 0, 0) rotate(20deg);
     transform-box: border-box;
+    border: 1px solid green;
 }
 
 .right-leg {
@@ -84,13 +87,14 @@
     bottom: -3%;
     left: 50%;
 
-    -ms-transform: translateX(-62%) rotate(-21deg);
-    transform: translateX(-62%) rotate(-21deg);
-    -webkit-transform: translateX(-62%) rotate(-21deg);
+    -ms-transform: translate3d(-62%, 0, 0) rotate(-21deg);
+    transform: translate3d(-62%, 0, 0) rotate(-21deg);
+    -webkit-transform: translate3d(-62%, 0, 0) rotate(-21deg);
     -webkit-transform-origin: 19% top;
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
     transform-box: border-box;
+    border: 1px solid green;
 }
 
 .right-leg.paused {
