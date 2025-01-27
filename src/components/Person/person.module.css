@@ -9,7 +9,8 @@
     position: absolute;
     bottom: 23%;
     left: 12%;
-    width: 22%;
+    width: 7rem;
+    max-width: 13rem;
     height: 41%;
     -webkit-transition: 0.4s;
     -o-transition: 0.4s;
@@ -27,7 +28,7 @@
 
 @media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) {
     .person {
-        width: 8%;
+        /* width: 12%; */
         border: 1px solid rgb(55, 255, 0);
     }
 }
@@ -49,7 +50,6 @@
     height: 90%;
     z-index: 5;
     bottom: 18%;
-    left: 50%;
     left: 50%;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -221,16 +221,16 @@
 
 @-webkit-keyframes body {
     0% {
-        transform: translateY(-2%);
-        -webkit-transform: translateY(-2%);
+        transform: translate(-50%, -2%);
+        -webkit-transform: translate(-50%, -2%);
     }
     50% {
-        transform: translateY(0%);
-        -webkit-transform: translateY(0%);
+        transform: translate(-50%, -2%);
+        -webkit-transform: translate(-50%, -2%);
     }
     100% {
-        transform: translateY(-2%);
-        -webkit-transform: translateY(-2%);
+        transform: translate(-50%, -2%);
+        -webkit-transform: translate(-50%, -2%);
     }
 }
 

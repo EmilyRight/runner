@@ -1,10 +1,10 @@
 .person-shadow {
   position: absolute;
-  width: 24%;
+  width: 22%;
   max-width: 12rem;
   height: 8%;
   bottom: 20%;
-  left: 10%;
+  left: 9%;
   transform: translateX(0%);
   background-color: rgba(0, 0, 0, 0.327);
   border-radius: 50%;
@@ -15,15 +15,15 @@
 
 @media (min-width: 1441px) and (orientation: landscape) {
   .person-shadow {
-    left: 8%;
-    width: 22%;
+    /* left: 8%;
+    width: 22%; */
     max-width: 12rem;
   }
 }
 
 @media (max-width: 1092px) and (orientation: landscape) {
   .person-shadow {
-    width: 10%;
+    width: 15%;
     max-width: 12rem;
   }
 }
