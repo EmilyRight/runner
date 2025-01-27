@@ -5,6 +5,11 @@
     height: auto;
     /* max-width: 15rem; */
 }
+@media only screen and (orientation: landscape) and (min-device-width: 320px) and (max-device-width: 1024px) {
+    .hole-box {
+        max-width: 20rem;
+    }
+}
 
 .hole-box img {
     display: block;

@@ -8,7 +8,7 @@
 .person {
     position: absolute;
     bottom: 23%;
-    left: 12%;
+    left: 14%;
     width: 7rem;
     max-width: 13rem;
     height: 41%;
@@ -41,12 +41,14 @@
 .body {
     height: 90%;
     z-index: 5;
-    bottom: 18%;
+    top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, 0%);
     -ms-transform: translate(-50%, 0%);
     transform: translate(-50%, 0%);
     border: 1px solid rgb(0, 4, 255);
+
+    transform: translate3d(-50%, -63%, 0);
 }
 
 .legs-threshold {
@@ -66,14 +68,17 @@
     width: fit-content;
     z-index: 1;
     height: 27%;
-    bottom: -0%;
+    /* bottom: -0%; */
     left: 50%;
+    top: 50%;
     -webkit-transform-origin: 19% top;
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
     -ms-transform: translate3d(-74%, 0, 0) rotate(20deg);
-    transform: translate3d(-74%, 0, 0) rotate(20deg);
     -webkit-transform: translate3d(-74%, 0, 0) rotate(20deg);
+    transform: translate3d(-74%, 0, 0) rotate(20deg);
+    transform: translate3d(-74%, 78%, 0) rotate(20deg);
+
     transform-box: border-box;
     border: 1px solid green;
 }
@@ -84,12 +89,13 @@
     width: fit-content;
     z-index: 7;
     height: 30%;
-    bottom: -3%;
+    /* bottom: -3%; */
+    top: 50%;
     left: 50%;
-
     -ms-transform: translate3d(-62%, 0, 0) rotate(-21deg);
-    transform: translate3d(-62%, 0, 0) rotate(-21deg);
     -webkit-transform: translate3d(-62%, 0, 0) rotate(-21deg);
+    transform: translate3d(-62%, 0, 0) rotate(-21deg);
+    transform: translate3d(-62%, 81%, 0) rotate(-21deg);
     -webkit-transform-origin: 19% top;
     -ms-transform-origin: 19% top;
     transform-origin: 19% top;
