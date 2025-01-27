@@ -105,17 +105,17 @@
 
 .right-leg.moving {
     -webkit-animation: rightLeg 0.3s linear 0s infinite alternate forwards;
-    animation: rightLeg 0.3s linear 1s infinite alternate forwards;
+    animation: rightLeg 0.3s linear 0s infinite alternate forwards;
 }
 
 .left-leg.moving {
     -webkit-animation: leftLeg 0.3s linear 0s infinite alternate forwards;
-    animation: leftLeg 0.3s linear 1s infinite alternate forwards;
+    animation: leftLeg 0.3s linear 0s infinite alternate forwards;
 }
 
 .body.moving {
     -webkit-animation: body 0.6s linear 0s infinite normal forwards;
-    animation: body 0.6s linear 1s infinite normal forwards;
+    animation: body 0.6s linear 0s infinite normal forwards;
 }
 
 .body-img {
