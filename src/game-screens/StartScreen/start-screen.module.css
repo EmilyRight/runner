@@ -122,9 +122,9 @@
     -webkit-transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
     -webkit-transform: translate3d(0, 0, 0); */
-    -webkit-animation: startPerson2 2s linear 0s infinite normal forwards;
+    /* -webkit-animation: startPerson2 2s linear 0s infinite normal forwards;
 
-    animation: startPerson2 2s linear 0s infinite normal forwards;
+    animation: startPerson2 2s linear 0s infinite normal forwards; */
 }
 
 .person img {

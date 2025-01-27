@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 import Button from '../../components/Button/Button';
 import { useGameContext } from '../../context/gameContext';
@@ -8,11 +8,13 @@ import {
 } from '../../constants/imageSources';
 
 import styles from './start-screen.module.css';
+import { startPersonKeyframes, startPersonOptions } from './animationOptions';
 
 function StartScreen() {
     const { startGame } = useGameContext();
     const startScreenRef = useRef<HTMLDivElement | null>(null);
-
+    const personRef = useRef<HTMLDivElement | null>(null);
+    const animationRef = useRef<Animation | null>(null);
     const keyframes: Keyframe[] | PropertyIndexedKeyframes = [
         { left: '0%', offset: 0 },
 
@@ -34,15 +36,15 @@ function StartScreen() {
         setTimeout(() => {}, 500);
     };
 
-    // useEffect(() => {
-    //     if (startScreenRef.current) {
-    //         startScreenRef.current.style.display = 'none';
-    //         // Небольшая задержка (или \requestAnimationFrame\), чтобы Safari пересчитал элементы
-    //         setTimeout(() => {
-    //             startScreenRef.current.style.display = 'flex';
-    //         }, 10);
-    //     }
-    // }, []);
+    useEffect(() => {
+        if (startScreenRef.current && personRef.current) {
+            animationRef.current = personRef.current.animate(
+                startPersonKeyframes,
+                startPersonOptions
+            );
+            // Небольшая задержка (или \requestAnimationFrame\), чтобы Safari пересчитал элементы
+        }
+    }, []);
 
     return (
         <div className={`game-screen ${styles['start-screen']}`}>
@@ -56,7 +58,7 @@ function StartScreen() {
                         Собирай монетки, остерегайся угроз и&nbsp;выигрывай
                         приятные призы!
                     </div>
-                    <div className={styles.person}>
+                    <div className={styles.person} ref={personRef}>
                         <img src={START_PERSON_IMG_SRC} alt='' />
                     </div>
                     <Button
