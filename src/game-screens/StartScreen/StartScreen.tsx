@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 
-
 import Button from '../../components/Button/Button';
 import { useGameContext } from '../../context/gameContext';
 import {
@@ -13,7 +12,6 @@ import styles from './start-screen.module.css';
 function StartScreen() {
     const { startGame } = useGameContext();
     const startScreenRef = useRef<HTMLDivElement | null>(null);
-
 
     const keyframes: Keyframe[] | PropertyIndexedKeyframes = [
         { left: '0%', offset: 0 },
@@ -35,6 +33,16 @@ function StartScreen() {
         });
         setTimeout(() => {}, 500);
     };
+
+    // useEffect(() => {
+    //     if (startScreenRef.current) {
+    //         startScreenRef.current.style.display = 'none';
+    //         // Небольшая задержка (или \requestAnimationFrame\), чтобы Safari пересчитал элементы
+    //         setTimeout(() => {
+    //             startScreenRef.current.style.display = 'flex';
+    //         }, 10);
+    //     }
+    // }, []);
 
     return (
         <div className={`game-screen ${styles['start-screen']}`}>
