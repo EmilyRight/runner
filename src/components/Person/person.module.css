@@ -109,7 +109,7 @@
 .body-img {
     display: block;
     height: 100%;
-    width: auto;
+    width: fit-content;
     -o-object-fit: contain;
     object-fit: contain;
     -webkit-user-select: none;
