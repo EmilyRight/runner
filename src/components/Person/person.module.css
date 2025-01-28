@@ -102,7 +102,7 @@
     border: 1px solid green;
 }
 
-.right-leg.paused {
+.right-leg.moving{
     animation-play-state: paused;
 }
 

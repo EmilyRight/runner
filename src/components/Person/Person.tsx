@@ -49,21 +49,6 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
         const { setIsAnimationEnded } = useGameContext();
         const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
-        useEffect(() => {
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-            if (isIOS) {
-                console.log('====================================');
-                console.log('IOS');
-                console.log('====================================');
-                const timer = setTimeout(() => {
-                    forceUpdate();
-                }, 100);
-
-                return () => clearTimeout(timer);
-            }
-        }, []);
-
         const trackAnimation = () => {
             if (animationRef.current) {
                 const effect = animationRef.current.effect as KeyframeEffect;
@@ -184,6 +169,18 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                 document.removeEventListener('keydown', handlePressSpaceKey);
                 window.removeEventListener('touchstart', handlePressSpaceKey);
             };
+        }, []);
+
+        useEffect(() => {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+
+            if (isIOS) {
+                const timer = setTimeout(() => {
+                    forceUpdate();
+                }, 100);
+
+                return () => clearTimeout(timer);
+            }
         }, []);
 
         return (

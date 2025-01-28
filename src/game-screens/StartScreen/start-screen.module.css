@@ -100,11 +100,10 @@
     height: 85%;
     max-height: 50rem;
     z-index: 5;
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    justify-content: center;
     left: 50%;
     top: 50%;
-    /* bottom: -25.5%; */
     -ms-transform: translate3d(-50%, -11%, 0) rotate(0deg);
     transform: translate3d(-50%, -11%, 0) rotate(0deg);
     -webkit-transform: translate3d(-50%, -11%, 0) rotate(0deg);
@@ -121,6 +120,7 @@
     height: 100%;
     -o-object-fit: contain;
     object-fit: contain;
+    width: fit-content;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
