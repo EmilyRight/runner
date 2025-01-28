@@ -10,6 +10,7 @@ import ScreenHeader from '../../components/ScreenHeader/ScreenHeader';
 
 import styles from './game-screen.module.css';
 import useOrientationChange from '../../hooks/use-orientation-change';
+import ErrorBoundary from '../../components/ErrorBoundary/ErrorBoundary';
 
 type Item = {
     id: string;
@@ -203,13 +204,15 @@ function GameScreen() {
             <GameBackground isLandscape={isLandscape} />
             <ScreenHeader />
             <div className={styles['game-field']} ref={fieldRef}>
-                <Person
-                    ref={personRef}
-                    setCoords={handlePersonCoords}
-                    setLegCoords={setLegsCoords}
-                    legsRef={legsRef}
-                    isLandscape={isLandscape}
-                />
+                <ErrorBoundary>
+                    <Person
+                        ref={personRef}
+                        setCoords={handlePersonCoords}
+                        setLegCoords={setLegsCoords}
+                        legsRef={legsRef}
+                        isLandscape={isLandscape}
+                    />
+                </ErrorBoundary>
 
                 {items.map((item) =>
                     item.type === 'coin' ? (

@@ -2,7 +2,7 @@ import {
     forwardRef,
     useCallback,
     useEffect,
-    useReducer,
+    useLayoutEffect,
     useRef,
     useState,
 } from 'react';
@@ -46,11 +46,12 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
 
         const coordY = useRef(0);
         const animationRef = useRef<Animation | null>(null);
+        const [imagesLoaded, setImagesLoaded] = useState(false);
+        const [error, setError] = useState(null);
         const { setIsAnimationEnded } = useGameContext();
-        const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
         const trackAnimation = () => {
-            if (animationRef.current) {
+            if (imagesLoaded && animationRef.current) {
                 const effect = animationRef.current.effect as KeyframeEffect;
                 if (effect && effect.getComputedTiming) {
                     const progress = effect.getComputedTiming().progress || 0;
@@ -70,7 +71,8 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
         };
 
         const handlePressSpaceKey = (e: Event): void => {
-            if (!personRef?.current || isJumpingRef.current) return;
+            if (!personRef?.current || isJumpingRef.current || !imagesLoaded)
+                return;
 
             if (e instanceof KeyboardEvent) {
                 setIsJumping(true);
@@ -103,7 +105,11 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
         };
 
         const createAnimations = useCallback(() => {
-            if (!bodyRef.current || !leftLegRef.current || !rightLegRef.current)
+            if (
+                !bodyRef.current ||
+                !leftLegRef.current ||
+                (!rightLegRef.current && !imagesLoaded)
+            )
                 return;
 
             bodyAnimationsRef.current?.forEach((animation) =>
@@ -128,15 +134,45 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
             ];
 
             elements.forEach((element, i) => {
-                const [keyframes, options] = animationOptions[i];
-                const animation = element.animate(keyframes, options);
-                bodyAnimationsRef.current?.push(animation);
+                if (element) {
+                    const [keyframes, options] = animationOptions[i];
+                    const animation = element.animate(keyframes, options);
+                    bodyAnimationsRef.current?.push(animation);
 
-                if (isLandscape || isJumpingRef.current === true) {
-                    animation.pause();
+                    if (isLandscape || isJumpingRef.current === true) {
+                        animation.pause();
+                    }
                 }
             });
-        }, [isLandscape, isJumping]);
+        }, [isLandscape, isJumping, imagesLoaded]);
+
+        useLayoutEffect(() => {
+            const loadImage = (src: string) => {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    img.onload = () => resolve(img);
+                    img.onerror = (e) => {
+                        reject(new Error(`Failed to load image: ${src}, ${e}`));
+                    };
+
+                    img.src = src;
+                });
+            };
+
+            Promise.all([
+                loadImage(PERSON_BODY_IMG_SRC),
+                loadImage(LLEG_IMG_SRC),
+                loadImage(RLEG_IMG_SRC),
+            ])
+                .then(() => {
+                    setImagesLoaded(true);
+                    setError(null);
+                })
+                .catch((err) => {
+                    setError(err.message);
+                    console.error('Error loading images', err);
+                });
+        }, []);
 
         useEffect(() => {
             createAnimations();
@@ -154,14 +190,14 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                     animation.cancel()
                 );
             };
-        }, [isLandscape, createAnimations, isJumping]);
+        }, [isLandscape, createAnimations, isJumping, imagesLoaded]);
 
         useEffect(() => {
-            if (!isLandscape) {
+            if (!isLandscape && personRef.current && legsRef.current) {
                 document.addEventListener('keydown', handlePressSpaceKey);
                 window.addEventListener('touchstart', handlePressSpaceKey);
-                const personRect = personRef.current!.getBoundingClientRect();
-                const legsRect = legsRef.current!.getBoundingClientRect();
+                const personRect = personRef.current.getBoundingClientRect();
+                const legsRect = legsRef.current.getBoundingClientRect();
                 setCoords(personRect);
                 setLegCoords(legsRect);
             }
@@ -169,55 +205,88 @@ const Person = forwardRef<HTMLDivElement, PersonProps>(
                 document.removeEventListener('keydown', handlePressSpaceKey);
                 window.removeEventListener('touchstart', handlePressSpaceKey);
             };
-        }, []);
-
-        useEffect(() => {
-            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-
-            if (isIOS) {
-                const timer = setTimeout(() => {
-                    forceUpdate();
-                }, 100);
-
-                return () => clearTimeout(timer);
-            }
-        }, []);
+        }, [imagesLoaded]);
 
         return (
             <>
-                <div className={styles.person} ref={personRef}>
-                    <div
-                        className={`${styles.body} ${styles['person-body']}`}
-                        ref={bodyRef}>
-                        <img
-                            src={PERSON_BODY_IMG_SRC}
-                            alt=''
-                            className={`${styles['body-img']} `}
-                        />
-                    </div>
+                {error && <div>Error: {error}</div>}
+                {!error &&
+                    (imagesLoaded ? (
+                        <>
+                            <div className={styles.person} ref={personRef}>
+                                <div
+                                    className={`${styles.body} ${styles['person-body']}`}
+                                    ref={bodyRef}>
+                                    <img
+                                        src={PERSON_BODY_IMG_SRC}
+                                        alt=''
+                                        className={`${styles['body-img']} `}
+                                    />
+                                </div>
 
-                    <div
-                        className={`${styles['right-leg']} ${styles['person-body']} `}
-                        ref={rightLegRef}>
-                        <img
-                            src={RLEG_IMG_SRC}
-                            alt=''
-                            className={styles['body-img']}
-                        />
-                    </div>
-                    <div
-                        className={`${styles['left-leg']} ${styles['person-body']} `}
-                        ref={leftLegRef}>
-                        <img
-                            src={LLEG_IMG_SRC}
-                            alt=''
-                            className={styles['body-img']}
-                        />
-                    </div>
-                    <div className={styles['legs-threshold']} ref={legsRef} />
-                </div>
-                <PersonShadow isJumping={isJumpingRef.current} />
+                                <div
+                                    className={`${styles['right-leg']} ${styles['person-body']} `}
+                                    ref={rightLegRef}>
+                                    <img
+                                        src={RLEG_IMG_SRC}
+                                        alt=''
+                                        className={styles['body-img']}
+                                    />
+                                </div>
+                                <div
+                                    className={`${styles['left-leg']} ${styles['person-body']} `}
+                                    ref={leftLegRef}>
+                                    <img
+                                        src={LLEG_IMG_SRC}
+                                        alt=''
+                                        className={styles['body-img']}
+                                    />
+                                </div>
+                                <div
+                                    className={styles['legs-threshold']}
+                                    ref={legsRef}
+                                />
+                            </div>
+                            <PersonShadow isJumping={isJumpingRef.current} />
+                        </>
+                    ) : (
+                        <div>Nothing</div>
+                    ))}
             </>
+            // <>
+            //     <div className={styles.person} ref={personRef}>
+            //         <div
+            //             className={`${styles.body} ${styles['person-body']}`}
+            //             ref={bodyRef}>
+            //             <img
+            //                 src={PERSON_BODY_IMG_SRC}
+            //                 alt=''
+            //                 className={`${styles['body-img']} `}
+            //             />
+            //         </div>
+
+            //         <div
+            //             className={`${styles['right-leg']} ${styles['person-body']} `}
+            //             ref={rightLegRef}>
+            //             <img
+            //                 src={RLEG_IMG_SRC}
+            //                 alt=''
+            //                 className={styles['body-img']}
+            //             />
+            //         </div>
+            //         <div
+            //             className={`${styles['left-leg']} ${styles['person-body']} `}
+            //             ref={leftLegRef}>
+            //             <img
+            //                 src={LLEG_IMG_SRC}
+            //                 alt=''
+            //                 className={styles['body-img']}
+            //             />
+            //         </div>
+            //         <div className={styles['legs-threshold']} ref={legsRef} />
+            //     </div>
+            //     <PersonShadow isJumping={isJumpingRef.current} />
+            // </>
         );
     }
 );

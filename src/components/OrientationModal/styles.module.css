@@ -40,7 +40,7 @@
     width: 100vw;
     height: 100vh;
     height: 100dvh;
-    /* backdrop-filter: blur(5px); */
+    backdrop-filter: blur(8px);
 }
 
 .button {

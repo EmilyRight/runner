@@ -8,9 +8,10 @@
 .person {
     position: absolute;
     bottom: 23%;
-    left: 50px;
-    width: 7rem;
-    max-width: 13rem;
+    left: 12%;
+    /* width: 22vw; */
+    width: 22%;
+    max-width: 7rem;
     height: 41%;
     -webkit-transition: 0.4s;
     -o-transition: 0.4s;
@@ -26,11 +27,11 @@
     border: 1px solid red;
 }
 
-@media (min-width: 600px) and (orientation: landscape) {
+/* @media (min-width: 600px) and (orientation: landscape) {
     .person {
         width: 5rem;
     }
-}
+} */
 
 .person-body {
     position: absolute;
@@ -46,6 +47,7 @@
 
 .body {
     height: 90%;
+    /* width: 22vw; */
     z-index: 5;
     top: 50%;
     left: 50%;
@@ -56,15 +58,15 @@
     transform: translate3d(-50%, -63%, 0);
 }
 
-.body img {
-    width: 91px;
-}
+/* .body img {
+    width: 22vw;
+} */
 
-@media (min-width: 600px) and (orientation: landscape) {
+/* @media (min-width: 600px) and (orientation: landscape) {
     .body img {
         width: 50px;
     }
-}
+} */
 
 .legs-threshold {
     position: absolute;
@@ -98,20 +100,20 @@
     border: 1px solid green;
 }
 
-.left-leg img {
-    width: 45px;
-}
+/* .left-leg img {
+    width: 10vw;
+} */
 
-@media (min-width: 600px) and (orientation: landscape) {
+/* @media (min-width: 600px) and (orientation: landscape) {
     .left-leg img {
         width: 20px;
     }
-}
+} */
 
 .right-leg {
     width: -webkit-fit-content;
     width: -moz-fit-content;
-    width: fit-content;
+    /* width: 10vw; */
     z-index: 7;
     height: 30%;
     /* bottom: -3%; */
@@ -128,16 +130,15 @@
     border: 1px solid green;
 }
 
-.right-leg img {
-    width: 45px;
+/* .right-leg img {
+    width: 100%;
 }
 
 @media (min-width: 600px) and (orientation: landscape) {
-    .right-leg img {
-        width: 20px;
+    .right-leg {
+        width: ;
     }
-}
-
+} */
 
 .right-leg.moving {
     animation-play-state: paused;
